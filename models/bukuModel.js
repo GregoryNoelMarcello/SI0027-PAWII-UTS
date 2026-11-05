@@ -16,8 +16,43 @@
 
 const mongoose = require("mongoose");
 
-// TODO A1: buat schema subdocument penerbit
-// TODO A2: buat bukuSchema
-// TODO A3: export model dengan nama "Buku"
+const penerbitSchema = new mongoose.Schema(
+	{
+		nama: { type: String, required: true, trim: true },
+		tahun: {
+			type: Number,
+			required: true,
+			min: 1900,
+			max: new Date().getFullYear(),
+		},
+	},
+	{ _id: false }
+);
 
-module.exports = {};
+const bukuSchema = new mongoose.Schema({
+	judul: { type: String, required: true, trim: true },
+	isbn: {
+		type: String,
+		required: true,
+		unique: true,
+		match: [/^\d{13}$/, "ISBN harus terdiri dari tepat 13 digit angka"],
+	},
+	penulis: {
+		type: [{ type: String, trim: true }],
+		required: true,
+		validate: {
+			validator: (penulis) => Array.isArray(penulis) && penulis.length >= 1,
+			message: "Minimal harus ada satu penulis",
+		},
+	},
+	penerbit: { type: penerbitSchema, required: true },
+	kategoriId: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "Kategori",
+		required: true,
+	},
+	stok: { type: Number, default: 0, min: 0 },
+	createdAt: { type: Date, default: Date.now },
+});
+
+module.exports = mongoose.model("Buku", bukuSchema);
