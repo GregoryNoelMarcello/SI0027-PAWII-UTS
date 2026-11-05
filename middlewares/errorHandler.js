@@ -1,4 +1,4 @@
-// TODO D: Middleware error handling terpusat (Pertemuan 5 & 11-12)
+// Middleware error handling terpusat.
 // Didaftarkan PALING AKHIR pada app.js. Respons error SELALU berbentuk { message }.
 
 // Pemetaan error -> status:

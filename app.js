@@ -1,6 +1,6 @@
 // UTS PAW II - Katalog Perpustakaan Digital Kampus (Starter)
 // Koneksi MongoDB, CORS, parser JSON, dan route /kategori sudah tersedia.
-// Lengkapi bagian bertanda TODO (lihat README.md bagian C dan D).
+// Seluruh route API dan middleware error ditautkan di bawah ini.
 
 require("express-async-errors");
 require("dotenv").config();

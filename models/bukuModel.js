@@ -1,4 +1,4 @@
-// TODO A: Rancang Schema & Model Buku sesuai tabel skema pada README.md
+// Schema dan model Buku sesuai kontrak API.
 //
 // Ketentuan:
 //   judul      String, wajib diisi, spasi di awal/akhir dibuang

@@ -1,4 +1,4 @@
-// TODO B: Controller Buku - CRUD lengkap (Pertemuan 3-4, 9-12)
+// Controller Buku - CRUD dan query katalog.
 // Format error: lempar objek { status, message } (lihat middlewares/errorHandler.js),
 // mis. throw { status: 404, message: "Buku tidak ditemukan" }
 // express-async-errors sudah aktif di app.js, jadi tidak perlu try/catch.

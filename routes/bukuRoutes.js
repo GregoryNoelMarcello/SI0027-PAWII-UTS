@@ -1,4 +1,4 @@
-// TODO C: Routing Buku (semua endpoint publik, tanpa autentikasi)
+// Routing Buku (semua endpoint publik, tanpa autentikasi).
 //   GET    /          daftar buku
 //   GET    /:id       detail buku
 //   POST   /          tambah buku
