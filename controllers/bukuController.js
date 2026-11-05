@@ -1,13 +1,18 @@
 // TODO B: Controller Buku - CRUD lengkap (Pertemuan 3-4, 9-12)
-//
 // Format error: lempar objek { status, message } (lihat middlewares/errorHandler.js),
+const { get } = require("mongoose");
+const errorHandler = require("../middlewares/errorHandler");
+throw {status: 404, message: "Buku tidak ditemukan"}
 // mis. throw { status: 404, message: "Buku tidak ditemukan" }
 // express-async-errors sudah aktif di app.js, jadi tidak perlu try/catch.
 
 const Buku = require("../models/bukuModel");
 
 const MAX_LIMIT = 100;
-
+exports.getAll = async (req, res) => {
+  const data = await Buku.find().sort({ nama: 1 });
+  res.json(data);
+};
 // GET /buku
 // Query opsional:
 //   kategoriId  filter berdasarkan kategori
